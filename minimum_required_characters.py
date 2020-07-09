@@ -13,24 +13,36 @@ Input: AACECAAAA
 Output: 2
 
 ABC
+add an A -> ABCA isPalindrome()? NO
+add a B -> ABCAB isPalindrome()? NO
 Add a ".", AACECAAAA.AAAACECAA Is this Palindrome? NO
 Add 
  """
 
+def isPalindrome(word):
+    return word == word[::-1]
+
+
  
 def minimumCharacters(word):
+    if len(word) == 0 or len(word) == 1:
+        return len(word)
+
     counter = 0
-    reverse_index =  1 - (len(word))
-    print("word: ", word, "reversed: ", word[::-1]), 
-    while word != word[::-1]:
-        counter += 1
-        word = word[reverse_index] + word
-        reverse_index += 1
-        print("word: ", word, "reversed: ", word[::-1]), 
-        if counter == 5 or reverse_index >= 0:
-            break
+    # Append the reverse of each substring, starting from index 0 -> len(word)
+    for index in range(0, len(word)):
+        reversed_word = word[::-1]
+        sub_string = reversed_word[:index]
+        print("Sub_String: ", sub_string)
+        if isPalindrome(sub_string + word):
+            return counter
+        else:
+            counter += 1
     return counter
-        
+
+string0 = ""
 string1 = "ABC"
 string2 = "AACECAAAA"
+print(minimumCharacters(string0))
+print(minimumCharacters(string1))
 print(minimumCharacters(string2))
