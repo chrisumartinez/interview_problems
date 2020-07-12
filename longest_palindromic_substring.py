@@ -92,9 +92,9 @@ def longest_palindrome(input_string):
 #     return return_string
 
 
-example1 = "i want to be a racecar driver"
+# example1 = "i want to be a racecar driver"
 
-print("Longest Palindrome String: ", longest_palindrome(example1))
+# print("Longest Palindrome String: ", longest_palindrome(example1))
 
 
 
