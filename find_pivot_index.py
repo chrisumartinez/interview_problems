@@ -1,0 +1,2 @@
+a = "asdnalksd"
+print(a)
