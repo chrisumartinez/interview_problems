@@ -18,12 +18,29 @@ Example:
 [2, 3, 4, 6]; swap 4 with 3
 
 Done! Total swaps: 4. """
-
 def bubble_sort_swaps(nums):
-    master_swaps = 0
-    
+  overall_swaps = 0
+  swap_flag = True
+  swap_counter = 0
+  while swap_flag:
+    for index in range(0, len(nums)-1):
+      if nums[index] > nums[index+1]:
+        #swap
+        nums[index] ^= nums[index+1]
+        nums[index+1] ^= nums[index]
+        nums[index] ^= nums[index+1]
 
-  pass
+        swap_counter += 1
+    #print("Swap Counter after each iteration: ", swap_counter)
+      # no swaps, then list is sorted:
+    if swap_counter == 0:
+      swap_flag = False
+    else:
+      # dump swap_counter into overall_swaps, reset swap_counter = 0
+      overall_swaps += swap_counter
+      swap_counter = 0
+
+  return overall_swaps
 
 nums = [6, 2, 4, 3]
 print(bubble_sort_swaps(nums))
