@@ -45,7 +45,7 @@ def color_sort(nums):
     #         # if you see a 2, put it in end of list
     return nums
 
-arr = [1,0,1,0,2,1,0,2]
+arr = [1,1,0,0,2,1,1,1,0,2,0]
 print(color_sort(arr))
 
 

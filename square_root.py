@@ -29,15 +29,18 @@ def squareRoot(num):
 
     while low <= high:
         mid = low + (high-low) // 2
+
+        print("Low: ", low, "Mid: ", mid, "High: ", high)
+        print("Mid * Mid: " , mid * mid)
         #perfect base
         if mid * mid == num:
             return mid
         if mid * mid > num:
-            high = high - 1
+            high = mid - 1
         else:
-            low = low + 1
+            low = mid + 1
     #return floor
     return high
 
-sampleInput = 8
+sampleInput = 125
 print(squareRoot(sampleInput))
