@@ -20,33 +20,22 @@ requires taking only one pass over the array, thus handily out-performing the ro
 def color_sort(nums):
     index = 0
     while index < len(nums):
-        elem = nums[index]
-        print("Index", index, "Elem", elem)
-        if elem == 0:
-            nums.pop(index)
-            nums.insert(0, elem)
-            index += 1
-        elif elem == 2:
-            nums.pop(index)
-            nums.append(elem)
-            index += 1
+        if nums[index] == 0:
+            #insert in the beginning
+            nums.insert(0, nums.pop(index))
+            if nums[index] == 0:
+                index += 1
+        elif nums[index] == 2:
+            nums.append(nums.pop(index))
+            if nums[index] == 2:
+                index += 1
         else:
             index += 1
-
-    # for index in range(0,len(nums)):
-    #     elem = nums[index]
-    #     if elem == 0:
-    #         nums.pop(index)
-    #         nums.insert(0, elem)
-    #         # if you see a 0, put it in front of list
-    #     if elem == 2:
-    #         nums.pop(index)
-    #         nums.append(elem)
-    #         # if you see a 2, put it in end of list
     return nums
 
 arr = [1,1,0,0,2,1,1,1,0,2,0]
-print(color_sort(arr))
+arr2 = [2,2,1]
+print(color_sort(arr2))
 
 
 
