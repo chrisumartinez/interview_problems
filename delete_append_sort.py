@@ -23,49 +23,79 @@ Done! Took three operations.
 Original site: https://open.kattis.com/problems/dasort  """
 
 
-#def da_sort(nums):
-    # stack = []
-    # num_operations = 0
 
-    # #Iterate in n time
-    # for index in range(0, len(nums)-1):
-    #     #if first # isn't increasing with the next #, then push to stack, increment num_ops:
-    #     if nums[index] > nums[index+1]:
-    #         stack.append(nums[index])
-    #         num_operations += 1
+""" 
+1. Initialize an empty stack
+2. Iterate through the array
+3. if the current elem > top of the stack and current elem  < smallest outcast:
+3a. then we push into the stack
+else:
+    while current elem < top of the stack:
+        pop off the top of the stack
+        if top of the stack < smallest outcast:
+            smallest outcast = smallest value in the stack
+    push onto the stack
 
-# input: an array of integers
-# output: an integer, how many da operations are needed to sort this array
+Array:
+[1, 5, 2, 4, 3, 6]
+
+smallest_outcast: 5
+
+Stack:
+[1,2,4]
+
+
+len(array) - len(stack) = # of operations: 
+
+
+
+
+ """
+
+
 def da_sort(nums):
-    #Just check for the longest subsequence of increasing integers, and count the
-    stack = []
-    counter = 0
-    check = nums[0]
-    for index in range(1, len(nums)):
-        #check if the next number is bigger than the previous number:
-        if check < nums[index]:
-            # if it is, then lets increment our counter:
-            counter += 1
-            # The bigger # is now the one we want to use as a check:
-            check = nums[index]
-    # Once we iterate through our loop, then we compare the counter with the length of our array.
-    # Because the length of the longest subsequence is 'counter', then we can subtract the length of counter
-    # with the length of our entire array:
-    
-    #if its an already sorted array, then we don't have any delete append operations!
-    if counter == 1:
-        return 0
-    else:
-        return (len(nums) - counter)
+    in_order = []
+    num_ops = None
+    for num in nums:
+        while len(in_order) > 0 and num < in_order[-1]:
+            if num_ops == None or num < num_ops:
+                num_ops = in_order.pop()
+            else:
+                in_order.pop()
+        in_order.append(num)
+    while in_order[-1] > num_ops:
+        in_order.pop()
+    return len(nums) - len(in_order)
 
-array = [1, 3, 2]
-array2 = [1, 5, 2, 4, 3, 6]
+list = [1, 5, 2, 4, 3, 6]
+print(da_sort(list))
+
+
+# def da_sort(nums):
+#     stack = []
+    
+#     smallest_outcast = 2147483647
+#     for elem in nums:
+#         for item in stack:
+#             if elem > slack[-1] and elem < smallest_outcast:
+#                 #continue iterating, push onto stack
+#                 stack.append(elem)
+#             else:
+#                 stack.pop()
+#                 smallest_outcast = elem
+
+#     return len(nums) -len(stack)
+
+    
+
+# array = [4,5,7,0,1,6,3]
+# sorted_array = [0,1,3,4,5,6,7]
+
 # array3 = [67890, 56312, 999999999, 12345, 23456, 38927, 45632, 100345, 98765, 23456,
 # 87654, 43278, 23456, 117654, 321899, 25432, 54326, 217435, 26845, 31782,
 # 33456, 41234, 56213]
 #Subsequence = [1,5,6]
-# length(array) - (len(subsequence) * 2)
 
 #print(da_sort(array))
-print(da_sort(array2))
+#print(da_sort(array2))
 #print(da_sort(array3))
