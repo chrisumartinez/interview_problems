@@ -67,8 +67,8 @@ def da_sort(nums):
         in_order.pop()
     return len(nums) - len(in_order)
 
-list = [1, 5, 2, 4, 3, 6]
-print(da_sort(list))
+# list = [1, 5, 2, 4, 3, 6]
+# print(da_sort(list))
 
 
 # def da_sort(nums):
