@@ -82,16 +82,16 @@ def simplifyPath(path):
 
     return output
     
-test1 = "/home/" #Expected: /home
-test2 = "/../" #Expected: /
-test3 = "/home//foo/" #Expected: /home/foo
-test4 = "/a//b////c/d//././/.." #Expected: /a/b/c
-test5 = "/a/../../b/../c//.//" #Expected: /c
-test6 = "/a/./b/../../c/" #Expected: /c
+# test1 = "/home/" #Expected: /home
+# test2 = "/../" #Expected: /
+# test3 = "/home//foo/" #Expected: /home/foo
+# test4 = "/a//b////c/d//././/.." #Expected: /a/b/c
+# test5 = "/a/../../b/../c//.//" #Expected: /c
+# test6 = "/a/./b/../../c/" #Expected: /c
 
-print(simplifyPath(test1))
-print(simplifyPath(test2))
-print(simplifyPath(test3))
-print(simplifyPath(test4))
-print(simplifyPath(test5))
-print(simplifyPath(test6))
+# print(simplifyPath(test1))
+# print(simplifyPath(test2))
+# print(simplifyPath(test3))
+# print(simplifyPath(test4))
+# print(simplifyPath(test5))
+# print(simplifyPath(test6))

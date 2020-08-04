@@ -62,27 +62,3 @@ print("Test 2: ", removeOuterParentheses(test2))
 print("Test 3: ", removeOuterParentheses(test3))
 print("Test 4: ", removeOuterParentheses(test4))
 print("Test 5: ", removeOuterParentheses(test5))
-
-""" 
-
-    # while index < len(string):
-    #     if string[index] == "(":
-    #         if string[index+1] == "(":
-    #             opening_index = index+1
-    #             #get the closing index
-    #             for checking_index in range(opening_index, len(string)-1):
-    #                 if string[checking_index] == ")":
-    #                     if string[checking_index+1] == ")":
-    #                         closing_index = checking_index+1
-    #                         break
-    #             # Grab substring with opening index and closing index as bounds, append to output:
-    #             output += string[opening_index:closing_index]
-    #             index = closing_index
-
-    #             index += 1
-    #         else:
-    #             index += 1
-    #     else:
-    #         index += 1
-
-    # return output """
