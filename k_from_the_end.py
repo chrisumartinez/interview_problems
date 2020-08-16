@@ -39,13 +39,13 @@ class LinkedList:
     kth_position = self.length - k
     counter = 0
     cur = self.head
-    while counter <= kth_position:
+    while counter < kth_position - 1:
       cur = cur.next
       counter += 1
     return cur.data
       
 
 
-ll = LinkedList()
-ll.extend([1,2,3,4,5,6])
-print(ll.kth_from_the_end(4))
+# ll = LinkedList()
+# ll.extend([1,2,3,4,5,6])
+# print(ll.kth_from_the_end(4))
