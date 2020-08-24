@@ -18,24 +18,50 @@ requires taking only one pass over the array, thus handily out-performing the ro
  """
 
 def color_sort(nums):
+
+    if len(nums) == 1:
+        return
+
+    high = len(nums) - 1
+    low = 0
     index = 0
-    while index < len(nums):
+
+    while index <= high:
+
+        print(nums)
+        #if num = 0
         if nums[index] == 0:
-            #insert in the beginning
-            nums.insert(0, nums.pop(index))
-            if nums[index] == 0:
-                index += 1
-        elif nums[index] == 2:
-            nums.append(nums.pop(index))
-            if nums[index] == 2:
-                index += 1
-        else:
-            index += 1
+
+            #swap
+            temp = nums[low]
+            nums[low] = nums[index]
+            nums[index] = temp
+
+
+            #increase our low bound:
+            low += 1
+
+        if nums[index] == 2:
+
+            #swap
+            temp = nums[high]
+            nums[high] = nums[index]
+            nums[index] = temp
+
+            #decrement our high bound:
+            high -= 1
+
+            #decrement the counter:
+            index -= 1
+
+        #increment our index iterator:
+        index += 1
+
     return nums
 
 arr = [1,1,0,0,2,1,1,1,0,2,0]
 arr2 = [2,2,1]
-print(color_sort(arr2))
+print(color_sort(arr))
 
 
 
