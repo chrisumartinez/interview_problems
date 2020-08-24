@@ -27,8 +27,6 @@ def color_sort(nums):
     index = 0
 
     while index <= high:
-
-        print(nums)
         #if num = 0
         if nums[index] == 0:
 
