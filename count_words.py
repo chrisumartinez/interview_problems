@@ -36,27 +36,33 @@ sam-i-am 1
 them 1 """
 
 
-
 def count_words(text):
-    #ignore case: make entire string lower case and strip punctuation:
-    #translator = str.maketrans('','',string.punctuation)
-    text = text.lower().replace(",", "").replace(".", "").replace("?", "").replace("!","").replace("~","")
+    # ignore case: make entire string lower case and strip punctuation:
+    # translator = str.maketrans('','',string.punctuation)
+    text = (
+        text.lower()
+        .replace(",", "")
+        .replace(".", "")
+        .replace("?", "")
+        .replace("!", "")
+        .replace("~", "")
+    )
     words = text.split()
     wordMap = {}
     output = ""
 
-    #initialize wordMap with our key values:
+    # initialize wordMap with our key values:
     for word in words:
-        #if key is not in the wordMap, then add it:
+        # if key is not in the wordMap, then add it:
         if word not in wordMap.keys():
             wordMap[word] = 1
         else:
-            #increment the counter in wordMap
+            # increment the counter in wordMap
             wordMap[word] += 1
 
     for key in wordMap:
-        output += key + ' ' + str(wordMap[key]) + "\n"
-    
+        output += key + " " + str(wordMap[key]) + "\n"
+
     return output
 
 
