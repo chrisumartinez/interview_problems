@@ -19,11 +19,11 @@ Add a ".", AACECAAAA.AAAACECAA Is this Palindrome? NO
 Add 
  """
 
+
 def isPalindrome(word):
     return word == word[::-1]
 
 
- 
 def minimumCharacters(word):
     if len(word) == 0 or len(word) == 1:
         return len(word)
@@ -39,6 +39,7 @@ def minimumCharacters(word):
         else:
             counter += 1
     return counter
+
 
 string0 = ""
 string1 = "ABC"
