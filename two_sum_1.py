@@ -26,11 +26,21 @@ from typing import List
 
 
 def twoSum(nums: List[int], target: int) -> List[int]:
+    # for i in range(0, len(nums)):
+    #     for j in range(i + 1, len(nums)):
+    #         if nums[i] + nums[j] == target:
+    #             return [i, j]
+    # return False
+
+    # hash map solution O(n) time and space:
+    nums_dict = {}
+    indices = []
+
     for i in range(0, len(nums)):
-        for j in range(i + 1, len(nums)):
-            if nums[i] + nums[j] == target:
-                return [i, j]
-    return False
+        complement = target - nums[i]
+        if complement in nums_dict:
+            return [nums_dict[complement], i]
+        nums_dict[nums[i]] = i
 
 
 nums1 = [2, 7, 11, 15]
@@ -40,6 +50,6 @@ target2 = 6
 nums3 = [3, 3]
 target3 = 6
 
-print(twoSum(nums1, target1))  # Expected: [0,1]
-print(twoSum(nums2, target2))  # Expected: [1,2]
-print(twoSum(nums3, target3))  # Expected: [0,1]
+# print(twoSum(nums1, target1))  # Expected: [0,1]
+# print(twoSum(nums2, target2))  # Expected: [1,2]
+# print(twoSum(nums3, target3))  # Expected: [0,1]

@@ -32,18 +32,31 @@ from typing import List
 
 def maxProfit(prices: List[int]) -> int:
 
-    # insufficient data:
+    # # insufficient data:
+    # if len(prices) < 2:
+    #     return 0
+
+    # minimum = prices[0]
+    # profit = 0
+    # for i in range(1, len(prices)):
+    #     # if prices[i] < minimum:
+    #     #     minimum = prices[i]
+    #     # else:
+    #     minimum = min(minimum, prices[i])
+    #     profit = max((prices[i] - minimum), profit)
+    # return profit
+
     if len(prices) < 2:
         return 0
 
-    minimum = prices[0]
+    minPrice = prices[0]
     profit = 0
     for i in range(1, len(prices)):
-        # if prices[i] < minimum:
-        #     minimum = prices[i]
-        # else:
-        minimum = min(minimum, prices[i])
-        profit = max((prices[i] - minimum), profit)
+        # if prices[i] is lower than min:
+        if prices[i] < minPrice:
+            minPrice = prices[i]
+        else:
+            profit = max((prices[i] - minPrice), profit)
     return profit
 
 

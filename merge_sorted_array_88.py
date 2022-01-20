@@ -35,37 +35,36 @@
 
 
 def merge(nums1, m, nums2, n):
+    p = len(nums1) - 1  # point to last item in nums1
+    p1 = m - 1  # point to last value in array
+    p2 = n - 1
+    while p != -1 and p1 != -1 and p2 != -1:
+        if nums1[p1] > nums2[p2]:
+            nums1[p] = nums1[p1]
+            p1 -= 1
+        else:
+            nums1[p] = nums2[p2]
+            p2 -= 1
+        p -= 1
 
-    """
-    the items in the array are sorted:
-    for loop: (from 0 -> n):
-        compare the value of nums2 to the middle:
-            binary search method:
-            if its not found, then we place it in the left (list.insert)
-    """
+    # if array is unfinished, complete:
+    if p1 != -1:
+        while p1 != -1:
+            nums1[p] = nums1[p1]
+            p1 -= 1
+            p -= 1
+    if p2 != -1:
+        while p2 != -1:
+            nums1[p] = nums2[p2]
+            p2 -= 1
+            p -= 1
 
-    if len(nums1) == 0 and len(nums2) != 0:
-        nums1 = nums2
-    if len(nums1) != 0 and len(nums2) == 0:
-        pass
-
-    i = 0
-
-    for index in range(m, len(nums1)):
-        nums1[index] = nums2[i]
-        i += 1
-
-    nums1.sort()
-
-    """
-    Do not return anything, modify nums1 in-place instead.
-    """
-    pass
+    return
 
 
-nums = [1, 2, 3, 0, 0, 0]
-nums2 = [2, 5, 6]
-n = 3
-m = 3
+nums = [0]
+nums2 = [1]
+n = 1
+m = 0
 
 print(merge(nums, m, nums2, n))  # Expected: [1,2,2,3,5,6]
