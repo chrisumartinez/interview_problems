@@ -24,11 +24,12 @@ return sorted_list
         return nums
 
  """
-  
+
+
 def merge_sort(nums):
     if len(nums) > 1:
 
-        #cut it in half
+        # cut it in half
         mid = len(nums) // 2
         left = nums[0:mid]
         right = nums[mid:]
@@ -37,27 +38,26 @@ def merge_sort(nums):
         left = merge_sort(left)
         sorted_list = []
 
-        #until at least one list is empty
+        # until at least one list is empty
         # check the head elem of each list
-        #append smaller elem to sorted list
-
-
+        # append smaller elem to sorted list
 
         while len(left) > 0 and len(right) > 0:
             if left[0] < right[0]:
-                #append the smaller one:
+                # append the smaller one:
                 sorted_list.append(left.pop(0))
             else:
                 sorted_list.append(right.pop(0))
 
-        #concatentate the rest of elements of the other list
+        # concatentate the rest of elements of the other list
         sorted_list.extend(right)
         sorted_list.extend(left)
 
     else:
-        #were down to just 1:
+        # were down to just 1:
         sorted_list = nums
     return sorted_list
+
 
 # list = [1,5,2,5,19,2,6]
 # print(merge_sort(list))

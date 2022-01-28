@@ -40,32 +40,32 @@ Explanation: The number "-91283472332" is out of the range of a 32-bit signed in
              Thefore INT_MIN (−231) is returned."""
 
 
-#param: a -> String
+# param: a -> String
 def atoi(a):
     # Function first discards all whitespaces chars
     # Until the first non-white character is found.
-    char = ' '
-    num_set = {"0","1","2","3","4","5","6","7","8","9"}
+    char = " "
+    num_set = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"}
     index = 0
-    final_string = ''
+    final_string = ""
     INT_MAX = (2 ** 32) - 1
-    INT_MIN =  0 - (2 ** 31)
+    INT_MIN = 0 - (2 ** 31)
 
-    #check for empty string:
-    if (a == ""):
+    # check for empty string:
+    if a == "":
         return 0
 
     while char == a[index]:
         # We check if we are exceeding bounhds,
         # if we are, then return 0:
-        if (index >= len(a)-1):
+        if index >= len(a) - 1:
             return 0
         # while white_space chars, lets ignore, but increase index
         index += 1
-        
+
     # Once we get the index of the first char, then we want to check
     # for a minus sign:
-    if a[index] == '-':
+    if a[index] == "-":
         # we know it a negative number:
         # Iterate through rest of the string, bypass the '-'
         for char in range(index + 1, len(a)):
@@ -76,7 +76,7 @@ def atoi(a):
         if (0 - int(final_string)) < INT_MIN:
             return INT_MIN
         else:
-            return (0 - int(final_string))
+            return 0 - int(final_string)
 
     else:
         # Check if next char is not #, then return
@@ -84,7 +84,7 @@ def atoi(a):
         if a[index] not in num_set:
             return 0
 
-        #Positive
+        # Positive
         # iterate through the string:
         for char in range(index, len(a)):
             if a[char] in num_set:
